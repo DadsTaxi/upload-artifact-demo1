@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
   
   steps:
-  - name: createstuff
-    run: echo "Hello World" 
-    uses: actions/checkout@v2.6.0
-    with:
-      # Repository name with owner. For example, actions/checkout
-      repository: # optional, default is ${{ github.repository }}
-  - uses: actions/upload-artifact@v3
-    with:
-      name: my-artifact
-      path: example.png # or path/to/artifact    
+    - name: createstuff
+      run: echo "Hello World" 
+      uses: actions/checkout@v2.6.0
+      with:
+        # Repository name with owner. For example, actions/checkout
+        repository: # optional, default is ${{ github.repository }}
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: example.png # or path/to/artifact    
     
