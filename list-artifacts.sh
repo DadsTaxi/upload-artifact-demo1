@@ -10,3 +10,7 @@ gh api -H "Accept: application/vnd.github+json" /repos/DadsTaxi/upload-artifact-
 echo "list all artifacts for a repo in a nice format which were created since 2023-01-02 23:40 UTC
 gh api -H "Accept: application/vnd.github+json" \
 /repos/DadsTaxi/upload-artifact-demo1/actions/artifacts --jq '.artifacts[] | {name, created_at, size_in_bytes, id} | select (.created_at > "2023-01-02T23:40")'
+
+echo "list all artifacts for a repo in a nice TSV format which were created since 2023-01-02 23:40 UTC
+gh api -H "Accept: application/vnd.github+json" \
+/repos/DadsTaxi/upload-artifact-demo1/actions/artifacts --jq '.artifacts[] | select (.created_at > "2023-01-02T23:40") | [.name, .created_at, .size_in_bytes, .id] | @tsv'
